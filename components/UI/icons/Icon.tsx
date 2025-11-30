@@ -4,6 +4,7 @@ export interface IconProps {
   strokeWidth?: number;
   strokeColor?: string;
   fillColor?: string;
+  viewBox?: string;
 }
 
 export default function Icon({
@@ -12,6 +13,7 @@ export default function Icon({
   strokeWidth = 1.5,
   strokeColor = "currentColor",
   fillColor = "none",
+  viewBox = "0 0 24 24",
   children,
 }: IconProps & { children: React.ReactNode }) {
   return (
@@ -23,7 +25,7 @@ export default function Icon({
       stroke={strokeColor}
       strokeWidth={strokeWidth}
       className={className}
-      viewBox="0 0 24 24"
+      viewBox={viewBox}
     >
       {children}
     </svg>

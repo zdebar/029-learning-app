@@ -1,35 +1,43 @@
-import type { ReactNode } from "react";
-import { Link, useMatch, type LinkProps } from "react-router-dom";
+"use client";
 
-interface HeaderButtonProps extends LinkProps {
+import type { ReactNode } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+interface HeaderButtonProps {
   children: ReactNode;
   disabled?: boolean;
   className?: string;
-  to: string;
+  href: string;
 }
 
 export default function HeaderButton({
   children,
   disabled = false,
   className = "",
-  to,
+  href,
   ...props
 }: HeaderButtonProps) {
-  const isSelected = useMatch(to);
+  const pathname = usePathname();
+  const isSelected = pathname === href;
 
-  return disabled ? (
-    <span
-      className={`shape-button-header color-button-header-disabled flex items-center justify-center ${className}`}
-      aria-disabled="true"
-      {...props}
-    >
-      {children}
-    </span>
-  ) : (
+  if (disabled) {
+    return (
+      <span
+        className={`shape-button-header color-button-header-disabled flex items-center justify-center ${className}`}
+        aria-disabled="true"
+        {...props}
+      >
+        {children}
+      </span>
+    );
+  }
+
+  return (
     <Link
-      to={to}
+      href={href}
       className={`shape-button-header color-button-header flex items-center justify-center ${
-        isSelected && "color-selected"
+        isSelected ? "color-selected" : ""
       } ${className}`}
       {...props}
     >

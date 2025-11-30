@@ -1,43 +1,41 @@
 import HomeIcon from "../UI/icons/HomeIcon";
-import AcademicCapIcon from "../UI/icons/AcademicCapIcon";
+import MathIcon from "../UI/icons/MathIcon";
 import HeaderButton from "@/components/UI/buttons/HeaderButton";
 import UserAvatar from "@/components/UI/UserAvatar";
 import ThemeSwitch from "@/features/theme/ThemeSwitch";
-import { useAuthStore } from "@/features/auth/use-auth-store";
+// import { useAuthStore } from "@/features/auth/use-auth-store";
 
 export default function Header() {
-  const { userId } = useAuthStore();
+  // const { userId } = useAuthStore();
 
   return (
-    <header className="header-fixed relative z-20 flex w-full flex-none justify-between">
+    <header className="flex justify-between p-4">
       <nav
-        className="sideheader "
         role="navigation"
         aria-label="Hlavní navigace"
+        className="flex justify-between"
       >
-        <HeaderButton to="/" aria-label="Domů">
+        <HeaderButton href="/" aria-label="Domů">
           <HomeIcon />
         </HeaderButton>
         <HeaderButton
-          to="/practice"
+          href="/practice"
           aria-label="Uživatelský dashboard"
-          className="tour-step-10"
-          disabled={!userId}
+          disabled={true}
         >
-          <AcademicCapIcon />
+          <MathIcon />
         </HeaderButton>
       </nav>
       <nav
-        className="sideheader rightheader "
         role="navigation"
         aria-label="Uživatelská navigace"
+        className="flex justify-between"
       >
         <ThemeSwitch />
         <HeaderButton
-          to="/profile"
+          href="/profile"
           aria-label="Nastavení uživatele"
-          disabled={!userId}
-          className="tour-step-30"
+          disabled={true}
         >
           <UserAvatar />
         </HeaderButton>

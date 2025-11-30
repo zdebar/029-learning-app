@@ -1,5 +1,7 @@
-import SunIcon from "./SunIcon";
-import MoonIcon from "./MoonIcon";
+"use client";
+
+import SunIcon from "@/components/UI/icons/SunIcon";
+import MoonIcon from "@/components/UI/icons/MoonIcon";
 import { useThemeStore, type UserTheme } from "./themeStore";
 
 /**

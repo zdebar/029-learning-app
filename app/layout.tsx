@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ThemeProvider from "./theme-provider";
+import ThemeProvider from "../features/theme/theme-provider";
+import Header from "@/components/Layout/Header";
+import Footer from "@/components/Layout/Footer";
 
 export const metadata: Metadata = {
   title: "Learning App",
@@ -14,9 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
+      <ThemeProvider>
+        <body className="max-w-container mx-auto min-h-screen">
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </ThemeProvider>
     </html>
   );
 }

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Mansalva:wght@400;700&family=Roboto:wght@300;400;700&display=swap");
-@import "tailwindcss";
 @import "../styles/colors.css";
 @import "../styles/shapes.css";
 @import "../styles/fonts.css";
+@import "../styles/layout.css";
+@import "tailwindcss";
