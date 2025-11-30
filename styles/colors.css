@@ -1,0 +1,16 @@
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /** Color Palette */
+  --color-dark: white;
+  --color-light: black;
+  --color-background-dark: #111827;
+  --color-background-light: #f7b740;
+  --color-overlay: rgba(0, 0, 0, 0.2);
+}
+
+@layer base {
+  html {
+    @apply text-light dark:text-dark bg-background-light dark:bg-background-dark;
+  }
+}
